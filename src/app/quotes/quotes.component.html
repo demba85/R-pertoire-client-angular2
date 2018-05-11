@@ -1,0 +1,79 @@
+
+
+
+
+<mat-toolbar color="primary">
+  <h1>Gestionnaire clients filao pressing</h1>
+</mat-toolbar>
+<!--
+<nav>
+  <a routerLink="/accueil" routerLinkActive="active" class="btn btn-default pull-right">Accueil</a>
+  <a routerLink="/ajouterClient" routerLinkActive="active" class="btn btn-default pull-right">Ajouter Clients</a>
+      <p>page 1</p>
+</nav>
+
+-->
+
+<!--
+<ul>
+  <li *ngFor="let quote of quotes$ | async" (click)="ShowQuoteDetails(quote)">
+
+    <mat-card>
+      {{ quote.firstname}}
+      <button id="click" mat-raised-button color="warn" (click)="deleteQuote(quote)">supprimé</button>
+      <button id="click" mat-raised-button color="accent" (click)="toggleToEditMode(quote)">modifier</button>
+    </mat-card> 
+    
+  </li>
+</ul>
+
+-->
+<br><br><br><br>
+
+<div class="container">
+
+    <div col-md-12>
+  
+  <table class="table">
+
+    
+    <thead class="mdb-color darken-3">
+      <tr class="text-white">
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Telephone</th>
+      </tr>
+    </thead>
+  
+
+   
+    <tbody>
+      <tr *ngFor="let quote of quotes$ | async" (click)="ShowQuoteDetails(quote)">
+        <th scope="row"></th>
+        <td>{{quote.firstname}}</td>
+        <td>{{quote.lastname}}</td>
+        <td>{{quote.email}}</td>
+        <td>{{quote.telephone}}
+          <div *ngIf="isAdmin">
+           <button id="click" mat-raised-button color="warn" (click)="deleteQuote(quote)"><span class="glyphicon glyphicon-trash"></span>supprimé</button>
+           <button id="click" mat-raised-button color="accent" (click)="toggleToEditMode(quote)"><span class="glyphicon glyphicon-pencil"></span>modifier</button>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+    
+    
+  </table>
+</div>
+
+
+<div *ngIf="!isAdmin">
+  Veuillez vous connecter avec un compte autorisé.
+</div>
+
+</div>
+
+

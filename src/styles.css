@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+li {
+    list-style-type: none;
+}
+
+
+h1 { 
+    color:#e5e1eb;
+    font-weight: bold;
+    font-size: 50px;
+    
+}
+
+#click{
+    float: right;
+}

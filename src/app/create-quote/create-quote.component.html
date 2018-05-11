@@ -1,0 +1,120 @@
+
+<!--
+<app-create-quote (create)="onQuoteCreated($event)" (update)="onQuoteUpdated($event)"></app-create-quote>
+<app-quotes></app-quotes>
+
+
+<div class="container">
+
+  <div class="col-md-4">
+  <form [formGroup]="form" (ngSubmit)="createQuote()">
+    <mat-form-field>
+      <input type="text" matInput formControlName="firstname" placeholder="Prénom">
+    </mat-form-field> <br><br>
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="lastname" placeholder="Nom">
+    </mat-form-field> <br><br>
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="email" placeholder="Email">
+    </mat-form-field> <br><br>
+
+    <mat-form-field>
+    <input type="tel" matInput formControlName="telephone" placeholder="Téléphone">
+    </mat-form-field> <br><br>
+
+    <button mat-raised-button color="primary">Envoyé</button>
+  </form>
+  </div>
+</div>
+-->
+<!--
+<div>
+  {{ form.value | json}}
+</div>
+
+<mat-toolbar color="primary">
+  <h1 class="ges center">Gestionnaire clients filao pressing</h1>
+</mat-toolbar>
+
+
+<nav>
+  <a routerLink="/accueil" routerLinkActive="active" class="btn btn-default pull-right">Accueil</a>
+  <a routerLink="/ajouterClient" routerLinkActive="active" class="btn btn-default pull-right">Ajouter Clients</a>
+         <p>page 2</p>
+</nav>
+-->
+<mat-toolbar color="primary">
+  <h1>Gestionnaire clients filao pressing</h1>
+</mat-toolbar>
+<br><br><br><br>
+
+<div class="col-md-10">
+  <h1>Formulaire</h1>
+  <hr>
+
+  <div *ngIf="isAdmin"> 
+  <form [formGroup]="form" (ngSubmit)="saveQuote()">
+    <!--First row-->
+    <div class="row">
+      <!--First column-->
+      <div class="col-md-4">
+        <div class="md-form">
+          <i class="fa fa-envelope prefix"></i>
+          <input mdbActive type="text" class="form-control" formControlName="firstname" id="form9" name="firstname" mdbInputValidate>
+          <label class="active" for="form9">prénom</label>
+        </div>
+      </div>
+
+      <!--Second column-->
+      <div class="col-md-4">
+        <div class="md-form">
+          <i class="fa fa-lock prefix"></i>
+          <input mdbActive type="text" class="form-control" formControlName="lastname" id="form10" name="lastname" mdbInputValidate>
+          <label class="active" for="form10">Nom</label>
+        </div>
+      </div>
+    </div>
+    <!--/.First row-->
+
+
+    <!--Third row-->
+    <div class="row">
+
+      <!--First column-->
+      <div class="col-md-4">
+        <div class="md-form">
+          <input mdbActive type="email" formControlName="email" id="form41" class="form-control">
+          <label for="form41" class="active">Email</label>
+        </div>
+      </div>
+
+      <!--Second column-->
+      <div class="col-md-4">
+        <div class="md-form">
+          <input mdbActive type="tel" id="form51" formControlName="telephone" class="form-control">
+          <label for="form51" class="active">Téléphone</label>
+        </div>
+      </div>
+
+    </div>
+    <!--
+        <button mat-raised-button color="primary"> {{verb}}Envoyé</button>
+        -->
+    <div class="text-center">
+      <button class="btn btn-indigo waves-light" mdbRippleRadius>{{verb}}
+        <i class="fa fa-paper-plane-o ml-1"></i>
+      </button>
+      <button mat-raised-button color="accent" (click)="cancelEdit()" *ngIf="isInEditMode">annuler la modification</button>
+     </div><!-- Third row-->
+
+  </form>
+  </div>
+
+  <div *ngIf="!isAdmin">
+    Veuillez vous connecter avec un compte autorisé.
+  </div>
+</div>
+<!-- fin -->
+

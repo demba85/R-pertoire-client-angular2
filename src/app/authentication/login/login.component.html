@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <h1>Gestionnaire clients filao pressing</h1>
+</mat-toolbar>
+
+<br><br><br>
+<!-- Default form subscription -->
+<div class="container">
+  <div class="col-md-6">
+<form #login="ngForm" (ngSubmit)="loginUser()" *ngIf="!(authService.user$ | async)">
+  <p class="h4 text-center mb-4">Connexion</p>
+
+  <!-- Default input name -->
+  <label for="defaultFormSubscriptionNameEx" class="grey-text">Your email</label>
+  <input type="email" id="defaultFormSubscriptionNameEx" name="email"  class="form-control" [(ngModel)]="existingUser.email">
+
+  <br>
+
+  <!-- Default input email -->
+  <label for="defaultFormSubscriptionEmailEx" class="grey-text">Password</label>
+  <input type="password" id="defaultFormSubscriptionEmailEx" name="password" class="form-control" [(ngModel)]="existingUser.password">
+
+  <div class="text-center mt-4">
+    <button class="btn btn-outline-purple" type="submit">Connexion
+      <i class="fa fa-paper-plane-o ml-2"></i>
+    </button>
+  </div>
+</form>
+<!-- Default form subscription -->
+<div *ngIf="authService.user$ | async">
+  <span *ngIf="authService.user$ | async">connecté en tant que {{ (authService.user$ | async)?.email }}</span>
+  <button mat-button color="warn" type="button" (click)="logoutUser()">Se déconnecter</button>
+  <button mat-button color="primary" tyep="button" (click)="authService.sendEmailVerification()">envoyer un email de confirmation</button>
+</div>
+
+</div>
+</div>
